@@ -22,7 +22,33 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+### Setup
+
+```ruby
+TwitterFriends.configure do |config|
+  config.twitter = {
+    consumer_key: 'CONSUMER_KEY',
+    consumer_secret: 'CONSUMER_SECRET'
+  }
+  config.redis = 'redis://127.0.0.1:6379/' # default ENV['REDIS_URL']
+  config.ttl = 60 * 30                     # sec
+  config.user_instance do |raw|
+    User.new(id: raw.id, nickname: raw.screen_name,
+             image: raw.profile_image_url_https.to_s)
+  end
+end
+```
+
+### Usage
+
+```ruby
+twitter = TwitterFriends.new
+# or
+twitter = TwitterFriends.new(access_token: 'token', access_token_secret: 'secret')
+
+twitter.friends(per: 200, page: 1)
+twitter.friends(per: 200, page: :randam)
+```
 
 ## Development
 
