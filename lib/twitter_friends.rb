@@ -1,4 +1,4 @@
-require "twitter_friends/version"
+require 'twitter_friends/version'
 
 module TwitterFriends
   # Your code goes here...

@@ -1,0 +1,5 @@
+AllCops:
+  Exclude:
+    - twitter_friends.gemspec
+Style/Documentation:
+  Enabled: false
