@@ -31,4 +31,8 @@ Gem::Specification.new do |spec|
   %w(rspec rubocop guard guard-rspec guard-rubocop rspec-its activemodel).each do |gem|
     spec.add_development_dependency gem
   end
+
+  %w(redis-namespace oj).each do |gem|
+    spec.add_dependency gem
+  end
 end

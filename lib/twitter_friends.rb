@@ -1,5 +1,7 @@
 require 'twitter_friends/version'
+require 'twitter_friends/helpers'
 require 'twitter_friends/config'
+require 'twitter_friends/cache'
 
 module TwitterFriends
   def self.configure
