@@ -1,5 +1,13 @@
 require 'twitter_friends/version'
+require 'twitter_friends/config'
 
 module TwitterFriends
-  # Your code goes here...
+  def self.configure
+    yield(config)
+    config.freeze
+  end
+
+  def self.config
+    @config ||= Config.new
+  end
 end
