@@ -10,5 +10,8 @@ require 'twitter_friends'
 # require "pry"
 # Pry.start
 
-require 'irb'
-IRB.start
+require 'dotenv'
+Dotenv.load
+
+require 'pry'
+Pry.start

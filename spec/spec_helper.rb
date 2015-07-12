@@ -5,6 +5,10 @@ Coveralls.wear!
 require 'twitter_friends'
 require 'rspec/its'
 require 'active_model'
+require 'webmock/rspec'
+require 'pry'
+require 'dotenv'
+Dotenv.load
 
 class MyUser
   include ActiveModel::Model
@@ -13,8 +17,8 @@ end
 
 TwitterFriends.configure do |config|
   config.twitter = {
-    consumer_key: 'CONSUMER_KEY',
-    consumer_secret: 'CONSUMER_SECRET'
+    consumer_key: ENV['CONSUMER_KEY'],
+    consumer_secret: ENV['CONSUMER_SECRET']
   }
   config.redis = 'redis://127.0.0.1:6379/' # default ENV['REDIS_URL']
   config.ttl = 60 * 30                     # sec

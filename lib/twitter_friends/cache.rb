@@ -16,15 +16,19 @@ module TwitterFriends
       redis.send(name, *args)
     end
 
-    def get(key, configs = {})
+    def get(key, ttl: nil)
       stored = redis.get(key)
       return Oj.load(stored, symbolize_keys: true) if stored
       return nil unless block_given?
 
       value = yield
-      redis.set(key, Oj.dump(value))
-      redis.expire(configs[:ttl]) if configs[:ttl]
+      set(key, value, ttl: ttl)
       value
+    end
+
+    def set(key, value, ttl: nil)
+      redis.set(key, Oj.dump(value))
+      redis.expire(ttl) if ttl
     end
   end
 end

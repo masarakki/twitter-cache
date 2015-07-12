@@ -39,6 +39,23 @@ TwitterFriends.configure do |config|
 end
 ```
 
+### Usage
+
+```ruby
+twitter = TwitterFriends.new
+# or with authorization
+twitter = TwitterFriends.new(access_token: 'token', access_token_secret: 'secre
+t')
+
+# for authorized user
+twitter.friends(per: 200, page: 1)
+twitter.friends(per: 200, page: :randam)
+
+# for other user
+twitter.friends(123456, per: 200, page: 1)
+twitter.friends(123456, per: 200, page: :random)
+```
+
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `bin/console` for an interactive prompt that will allow you to experiment.
