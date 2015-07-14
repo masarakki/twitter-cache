@@ -3,10 +3,12 @@ require 'twitter'
 module TwitterCache
   class Client
     include TwitterCache::Helpers
-    attr_reader :tokens
+    attr_accessor :access_token, :access_token_secret
 
-    def initialize(tokens = nil)
-      @tokens = tokens
+    def initialize(access_token: nil, access_token_secret: nil)
+      @access_token = access_token
+      @access_token_secret = access_token_secret
+      yield(self) if block_given?
     end
 
     def user(id = current_id)
@@ -47,10 +49,19 @@ module TwitterCache
     end
 
     def twitter
-      @twitter ||= ::Twitter::REST::Client.new(config.twitter.dup.merge(tokens))
+      @twitter ||= ::Twitter::REST::Client.new(config.twitter) do |conf|
+        if token_given?
+          conf.access_token = access_token
+          conf.access_token_secret = access_token_secret
+        end
+      end
     end
 
     protected
+
+    def token_given?
+      access_token && access_token_secret
+    end
 
     def user_key(id)
       "user:#{id}"

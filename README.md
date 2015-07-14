@@ -39,12 +39,28 @@ end
 
 ### Usage
 
+Unauthorized client:
+
 ```ruby
 twitter = TwitterCache::Client.new
-# or with authorization
-twitter = TwitterCache::Client.new(access_token: 'token', access_token_secret: 'secre
-t')
+```
 
+Authorized client:
+
+```ruby
+twitter = TwitterCache::Client.new(access_token: 'token', access_token_secret: 'secret')
+
+# or with block
+
+twitter = TwitterCache::Client.new do |c|
+  c.access_token = 'token'
+  c.access_token_secret = 'secret'
+end
+```
+
+Get friends:
+
+```ruby
 # for authorized user
 twitter.friends(per: 200, page: 1)
 twitter.friends(per: 200, page: :randam)
