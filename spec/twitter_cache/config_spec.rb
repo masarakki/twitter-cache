@@ -1,7 +1,7 @@
 require 'spec_helper'
 
-describe TwitterFriends::Config do
-  let(:config) { TwitterFriends.config }
+describe TwitterCache::Config do
+  let(:config) { TwitterCache.config }
   subject { config }
   its(:twitter) do
     is_expected.to eq consumer_key: ENV['CONSUMER_KEY'],

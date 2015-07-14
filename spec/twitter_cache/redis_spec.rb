@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe TwitterFriends::Cache do
+describe TwitterCache::Redis do
   before { cache.flushall }
   let(:cache) { described_class.new }
   let(:key) { 'hello' }

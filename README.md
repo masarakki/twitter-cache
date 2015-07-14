@@ -1,4 +1,4 @@
-# TwitterFriends
+# TwitterCache
 
 easy access and cache to twitter friends.
 
@@ -7,7 +7,7 @@ easy access and cache to twitter friends.
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'twitter_friends'
+gem 'twitter-cache'
 ```
 
 And then execute:
@@ -16,14 +16,14 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install twitter_friends
+    $ gem install twitter-cache
 
 ## Usage
 
 ### Setup
 
 ```ruby
-TwitterFriends.configure do |config|
+TwitterCache.configure do |config|
   config.twitter = {
     consumer_key: 'CONSUMER_KEY',
     consumer_secret: 'CONSUMER_SECRET'
@@ -40,9 +40,9 @@ end
 ### Usage
 
 ```ruby
-twitter = TwitterFriends.new
+twitter = TwitterCache::Client.new
 # or with authorization
-twitter = TwitterFriends.new(access_token: 'token', access_token_secret: 'secre
+twitter = TwitterCache::Client.new(access_token: 'token', access_token_secret: 'secre
 t')
 
 # for authorized user

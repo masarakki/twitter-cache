@@ -1,8 +1,8 @@
 require 'twitter'
 
-module TwitterFriends
+module TwitterCache
   class Client
-    include TwitterFriends::Helpers
+    include TwitterCache::Helpers
     attr_reader :tokens
 
     def initialize(tokens = nil)
@@ -47,7 +47,7 @@ module TwitterFriends
     end
 
     def twitter
-      @twitter ||= Twitter::REST::Client.new(config.twitter.dup.merge(tokens))
+      @twitter ||= ::Twitter::REST::Client.new(config.twitter.dup.merge(tokens))
     end
 
     protected

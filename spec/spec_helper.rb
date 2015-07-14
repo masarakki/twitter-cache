@@ -2,7 +2,7 @@ $LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
 require 'coveralls'
 Coveralls.wear!
 
-require 'twitter_friends'
+require 'twitter-cache'
 require 'rspec/its'
 require 'active_model'
 require 'webmock/rspec'
@@ -15,7 +15,7 @@ class MyUser
   attr_accessor :id, :nickname, :image
 end
 
-TwitterFriends.configure do |config|
+TwitterCache.configure do |config|
   config.twitter = {
     consumer_key: ENV['CONSUMER_KEY'],
     consumer_secret: ENV['CONSUMER_SECRET']
