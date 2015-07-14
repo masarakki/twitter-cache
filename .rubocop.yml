@@ -3,3 +3,5 @@ AllCops:
     - twitter_friends.gemspec
 Style/Documentation:
   Enabled: false
+Style/FileName:
+  Enabled: false
