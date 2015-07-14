@@ -4,7 +4,7 @@ def body(name)
   File.read("spec/mock/#{name}")
 end
 
-describe TwitterFriends::Client do
+describe TwitterCache::Client do
   context 'unauthorized' do
     let(:client) { described_class.new }
     describe 'current_user' do

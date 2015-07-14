@@ -1,4 +1,4 @@
-module TwitterFriends
+module TwitterCache
   class Config
     attr_accessor :twitter, :redis, :ttl
 

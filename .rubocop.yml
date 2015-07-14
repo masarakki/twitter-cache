@@ -1,6 +1,6 @@
 AllCops:
   Exclude:
-    - twitter_friends.gemspec
+    - twitter-cache.gemspec
 Style/Documentation:
   Enabled: false
 Style/FileName:
