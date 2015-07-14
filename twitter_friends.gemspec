@@ -28,7 +28,7 @@ Gem::Specification.new do |spec|
 
   spec.add_development_dependency 'bundler', '~> 1.7'
   spec.add_development_dependency 'rake', '~> 10.0'
-  %w(rspec rubocop guard guard-rspec guard-rubocop rspec-its activemodel).each do |gem|
+  %w(rspec rubocop guard guard-rspec guard-rubocop rspec-its activemodel coveralls).each do |gem|
     spec.add_development_dependency gem
   end
 
