@@ -1,6 +1,8 @@
 language: ruby
 rvm:
   - 2.2.2
+env:
+  - CONSUMER_KEY=key CONSUMER_SECRET=secret ACCESS_TOKEN=token ACCESS_TOKEN_SECRET=token_secret
 services:
   - redis
 script:

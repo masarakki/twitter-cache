@@ -28,11 +28,11 @@ Gem::Specification.new do |spec|
 
   spec.add_development_dependency 'bundler', '~> 1.7'
   spec.add_development_dependency 'rake', '~> 10.0'
-  %w(rspec rubocop guard guard-rspec guard-rubocop rspec-its activemodel coveralls).each do |gem|
+  %w(rspec rubocop guard guard-rspec guard-rubocop rspec-its activemodel coveralls webmock pry dotenv).each do |gem|
     spec.add_development_dependency gem
   end
 
-  %w(redis-namespace oj).each do |gem|
+  %w(twitter redis-namespace oj).each do |gem|
     spec.add_dependency gem
   end
 end

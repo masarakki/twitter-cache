@@ -13,7 +13,7 @@ describe TwitterFriends::Cache do
 
   context 'stored' do
     it_behaves_like :stored do
-      before { cache.set(key, Oj.dump(obj)) }
+      before { cache.set(key, obj) }
       subject { cache.get(key) }
     end
   end

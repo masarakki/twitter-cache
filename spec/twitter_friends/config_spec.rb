@@ -4,8 +4,8 @@ describe TwitterFriends::Config do
   let(:config) { TwitterFriends.config }
   subject { config }
   its(:twitter) do
-    is_expected.to eq consumer_key: 'CONSUMER_KEY',
-                      consumer_secret: 'CONSUMER_SECRET'
+    is_expected.to eq consumer_key: ENV['CONSUMER_KEY'],
+                      consumer_secret: ENV['CONSUMER_SECRET']
   end
   its(:redis) { is_expected.to eq 'redis://127.0.0.1:6379/' }
   its(:ttl) { is_expected.to eq 1800 }

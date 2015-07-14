@@ -7,6 +7,7 @@ module TwitterFriends
     end
 
     def convert_user(raw)
+      return raw unless @user_instance
       @user_instance.call(raw)
     end
   end
