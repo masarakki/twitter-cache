@@ -4,14 +4,14 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'twitter_friends/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = 'twitter_friends'
+  spec.name          = 'twitter-friends'
   spec.version       = TwitterFriends::VERSION
   spec.authors       = ['masarakki']
   spec.email         = ['masaki@hisme.net']
 
   spec.summary       = 'easy access and cache twitter friends'
   spec.description   = 'easy access and cache twitter friends'
-  spec.homepage      = 'https://github.com/masarakki/twitter_friends'
+  spec.homepage      = 'https://github.com/masarakki/twitter-friends'
   spec.license       = 'MIT'
 
   spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
