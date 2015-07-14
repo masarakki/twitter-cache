@@ -1,4 +1,7 @@
 $LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
+require 'coveralls'
+Coveralls.wear!
+
 require 'twitter_friends'
 require 'rspec/its'
 require 'active_model'
