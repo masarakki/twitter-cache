@@ -1,12 +1,8 @@
 require 'spec_helper'
 
-describe TwitterCache::Config do
-  let(:config) { TwitterCache.config }
+describe Twitter::Cache::Config do
+  let(:config) { Twitter::Cache.config }
   subject { config }
-  its(:twitter) do
-    is_expected.to eq consumer_key: ENV['CONSUMER_KEY'],
-                      consumer_secret: ENV['CONSUMER_SECRET']
-  end
   its(:redis) { is_expected.to eq 'redis://127.0.0.1:6379/' }
   its(:ttl) { is_expected.to eq 1800 }
   it { is_expected.to be_frozen }

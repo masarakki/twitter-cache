@@ -1,11 +1,11 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'twitter_cache/version'
+require 'twitter/cache/version'
 
 Gem::Specification.new do |spec|
   spec.name          = 'twitter-cache'
-  spec.version       = TwitterCache::VERSION
+  spec.version       = Twitter::Cache::VERSION
   spec.authors       = ['masarakki']
   spec.email         = ['masaki@hisme.net']
 
@@ -21,11 +21,11 @@ Gem::Specification.new do |spec|
 
   spec.add_development_dependency 'bundler', '~> 1.7'
   spec.add_development_dependency 'rake', '~> 10.0'
-  %w(rspec rubocop guard guard-rspec guard-rubocop rspec-its activemodel coveralls webmock pry dotenv).each do |gem|
+  %w(rspec rubocop guard guard-rspec guard-rubocop rspec-its activemodel coveralls pry).each do |gem|
     spec.add_development_dependency gem
   end
 
-  %w(twitter redis-namespace oj).each do |gem|
+  %w(redis-namespace oj).each do |gem|
     spec.add_dependency gem
   end
 end
