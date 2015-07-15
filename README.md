@@ -24,12 +24,9 @@ Or install it yourself as:
 
 ```ruby
 TwitterCache.configure do |config|
-  config.twitter = {
-    consumer_key: 'CONSUMER_KEY',
-    consumer_secret: 'CONSUMER_SECRET'
-  }
-  config.redis = 'redis://127.0.0.1:6379/' # default ENV['REDIS_URL']
+  config.redis = 'redis://127.0.0.1:6379/' # default: ENV['REDIS_URL']
   config.ttl = 60 * 30                     # sec
+  config.namespace = 'myapp'               # default: twitter-cache-gem
   config.user_instance do |raw|
     User.new(id: raw.id, nickname: raw.screen_name,
              image: raw.profile_image_url_https.to_s)
