@@ -3,8 +3,8 @@ module Twitter
     class Config
       attr_accessor :redis, :ttl, :namespace
 
-      def namespace
-        @namespace ||= 'twitter-cache-gem'
+      def initialize
+        @namespace = 'twitter-cache-gem'
       end
 
       def user_instance(&block)
