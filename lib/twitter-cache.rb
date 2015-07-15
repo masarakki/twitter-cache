@@ -1,1 +1,1 @@
-require 'twitter_cache'
+require 'twitter/cache'
