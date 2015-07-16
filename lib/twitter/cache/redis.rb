@@ -7,10 +7,11 @@ module Twitter
       include Twitter::Cache::Helpers
       attr_reader :client
 
-      def initialize
+      def initialize(prefix = nil)
         redis_url = ENV['REDIS_URL'] || config.redis
         redis = ::Redis.new(url: redis_url)
-        @client = ::Redis::Namespace.new(config.namespace, redis: redis)
+        namespace = [config.namespace, prefix].compact.join(':')
+        @client = ::Redis::Namespace.new(namespace, redis: redis)
       end
 
       def method_missing(name, *args)
