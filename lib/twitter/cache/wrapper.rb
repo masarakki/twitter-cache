@@ -21,12 +21,13 @@ module Twitter
       end
 
       def friends(id = current_id, per: 100, page: 0)
+        per = per.to_i
         ids = friend_ids(id)
         case page
         when :rand, :random, 'rand', 'random'
-          users(ids.sample(per.to_i))
+          users(ids.sample(per))
         else
-          start = per.to_i * page.to_i
+          start = per * page.to_i
           users(ids[start, per])
         end
       end
