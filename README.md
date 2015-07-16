@@ -1,6 +1,6 @@
 # TwitterCache
 
-easy access and cache to twitter friends.
+easy access and cache twitter friends.
 
 ## Installation
 
@@ -23,7 +23,7 @@ Or install it yourself as:
 ### Setup
 
 ```ruby
-TwitterCache.configure do |config|
+Twitte::rCache.configure do |config|
   config.redis = 'redis://127.0.0.1:6379/' # default: ENV['REDIS_URL']
   config.ttl = 60 * 30                     # sec
   config.namespace = 'myapp'               # default: twitter-cache-gem
