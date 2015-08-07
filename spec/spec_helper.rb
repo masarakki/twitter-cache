@@ -5,6 +5,7 @@ Coveralls.wear!
 require 'twitter-cache'
 require 'rspec/its'
 require 'active_model'
+require 'active_support/core_ext'
 require 'pry'
 
 class MyUser
@@ -14,7 +15,7 @@ end
 
 Twitter::Cache.configure do |config|
   config.redis = 'redis://127.0.0.1:6379/' # default ENV['REDIS_URL']
-  config.ttl = 60 * 30                     # sec
+  config.ttl = 30.minutes
   config.namespace = 'tcg-test'
   config.user_instance do |raw|
     MyUser.new(id: raw.id, nickname: raw.screen_name,
