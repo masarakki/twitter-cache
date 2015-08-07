@@ -37,4 +37,15 @@ describe Twitter::Cache::Redis do
       end
     end
   end
+
+  describe 'expire' do
+    it do
+      cache.get('hello', ttl: 1) do
+        'hoge'
+      end
+      expect(cache.get('hello')).to eq 'hoge'
+      sleep 2
+      expect(cache.get('hello')).to be_nil
+    end
+  end
 end
