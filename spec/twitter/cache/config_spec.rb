@@ -7,6 +7,30 @@ describe Twitter::Cache::Config do
   its(:ttl) { is_expected.to eq 1800 }
   it { is_expected.to be_frozen }
 
+  describe '#ttl=' do
+    let(:config) { Twitter::Cache::Config.new { |x| x.ttl = 1800 } }
+    subject { config.ttl = ttl }
+    context '10.minutes' do
+      let(:ttl) { 10.minutes }
+      it { expect { subject }.to change { config.ttl }.to(600) }
+    end
+
+    context 'nil' do
+      let(:ttl) { nil }
+      it { expect { subject }.to change { config.ttl }.to(nil) }
+    end
+
+    context 'false' do
+      let(:ttl) { false }
+      it { expect { subject }.to change { config.ttl }.to(nil) }
+    end
+
+    context 'bad argument' do
+      let(:ttl) { true }
+      it { expect { subject }.to raise_error 'not an integer' }
+    end
+  end
+
   describe 'convert_user' do
     let(:raw) do
       double id: 1, screen_name: 'foo',

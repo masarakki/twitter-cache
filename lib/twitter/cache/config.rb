@@ -5,10 +5,17 @@ module Twitter
 
       def initialize
         @namespace = 'twitter-cache-gem'
+        yield(self) if block_given?
       end
 
       def user_instance(&block)
         @user_instance = block
+      end
+
+      def ttl=(val)
+        return @ttl = nil unless val
+        fail 'not an integer' unless val.is_a?(Integer)
+        @ttl = val.to_i
       end
 
       def convert_user(raw)
