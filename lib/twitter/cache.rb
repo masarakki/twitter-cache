@@ -18,5 +18,9 @@ module Twitter
     def self.new(twitter)
       Twitter::Cache::Wrapper.new(twitter)
     end
+
+    def self.clean!
+      Twitter::Cache::Redis.new.flushall
+    end
   end
 end
