@@ -32,6 +32,10 @@ module Twitter
         client.set(key, Oj.dump(value))
         client.expire(key, ttl) if ttl
       end
+
+      def flushall
+        client.del client.keys unless client.keys.blank?
+      end
     end
   end
 end
