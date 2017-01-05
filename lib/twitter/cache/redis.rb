@@ -15,7 +15,7 @@ module Twitter
       end
 
       def method_missing(name, *args)
-        client.send(name, *args)
+        client.respond_to?(name) ? client.send(name, *args) : super
       end
 
       def get(key, ttl: nil)
@@ -35,6 +35,10 @@ module Twitter
 
       def flushall
         client.del client.keys unless client.keys.blank?
+      end
+
+      def respond_to_missing?(method_name, include_private = false)
+        client.respond_to?(method_name, include_private) || super
       end
     end
   end
