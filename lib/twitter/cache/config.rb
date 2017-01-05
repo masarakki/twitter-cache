@@ -14,7 +14,7 @@ module Twitter
 
       def ttl=(val)
         return @ttl = nil unless val
-        fail 'not an integer' unless val.is_a?(Integer)
+        raise 'not an integer' unless val.is_a?(Integer)
         @ttl = val.to_i
       end
 
